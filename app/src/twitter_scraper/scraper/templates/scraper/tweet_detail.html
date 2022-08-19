@@ -1,0 +1,25 @@
+{% extends "scraper/base.html" %}
+{% block content %}
+<div class="d-flex align-items-center justify-content-center">
+    <div class="card m-2" style="width: 24rem;">
+        <div class="card-body justify-content-center align-content-center">
+            <h4 class="card-title">{{ tweet.tweet_author }}</h4>
+            <p class="card-text">{{ tweet.tweet_text }}</p>
+            <h6 class="card-footer mb-2">
+                <p><span class="text-muted"> Likes: </span>{{ tweet.tweet_likes }}</p>  
+                <p><span class="text-muted"> Retweets: </span>{{ tweet.tweet_rts }}</p>  
+                <p><span class="text-muted"> Replies: </span>{{ tweet.tweet_replies }}</p>  
+            </h6>
+
+            {% if tweet.liked is False %}
+                <a class="btn btn-primary" href="{% url 'scraper:like' id=tweet.tweet_id %}">Like</a>
+            {% elif tweet.liked is True %}
+                <a class="btn btn-danger" href="{% url 'scraper:unlike' id=tweet.tweet_id %}">Unlike</a>
+            {% endif %}
+
+            <a class="btn btn-secondary" href="{% url 'scraper:tweets' %}">Back</a>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

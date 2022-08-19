@@ -1,0 +1,10 @@
+*__pycache__
+*.pyc
+db.sqlite3
+*.log
+*.env
+*.pytest_cache
+*.vscode
+*.rdb
+.coverage
+.dockerignore

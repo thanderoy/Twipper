@@ -1,0 +1,54 @@
+{% extends "scraper/base.html" %}
+{% block content %}
+
+<h3>All Tweets</h3>
+
+<div class="d-flex align-items-center justify-content-center">
+    
+    <table class="table">
+        {% if tweet_list %}
+            <thead>
+                <th scope="col">Tweet </th>
+                <th scope="col">Retweets</th>
+                <th scope="col">Likes</th>
+                <th scope="col">Replies</th>
+            </thead>
+
+        {% endif %}
+
+        {% for tweet in tweet_list %}
+
+            <tbody>
+                <tr>
+                    <td><a href="{% url 'scraper:tweet' tweet.pk %}">{{ tweet.tweet_text }}</a></td>
+                    
+                    <td>{{ tweet.tweet_rts }}</td>
+                    <td>{{ tweet.tweet_likes }}</td>
+                    <td>{{ tweet.tweet_replies }}</td>
+                </tr>
+            </tbody>
+            
+        {% endfor %}
+    </table>
+</div>
+<div class="pagination">
+    <span class="page-links">
+        {% if page_obj.has_previous %}
+            <a href="/?page={{ page_obj.previous_page_number }}">previous</a>
+        {% endif %}
+            <span class="page-current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+            </span>
+        {% if page_obj.has_next %}
+            <a href="/?page={{ page_obj.next_page_number }}">next</a>
+        {% endif %}
+    </span>
+</div>
+    
+<!-- 
+    <h3>Latest Tweet</h3>
+    <p>{{ latest_tweet.tweet_id }}</p>
+    <p>{{ latest_tweet.tweet_text}}</p>
+    <span>Likes: {{ latest_tweet.tweet_likes }}     Retweets: {{ latest_tweet.tweet_rts }}     Replies: {{ latest_tweet.tweet_replies }}</span>
+-->
+{% endblock content %}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Twitter Scraper</title>
+
+</head>
+
+    <table style="min-width: 300px;background: rgba(0, 0, 0, 0.15); overflow: hidden; width: 100%; height: 100%;">
+        <tbody style="width: 100%;">
+            <tr style="position: relative; width: 100%; padding: .5rem; background: #161616;">
+                <th style="width: 100%;" colspan="2">New Tweet Retrieved</th>
+            </tr>
+
+            <tr style="width: 100%;">
+                <th style="width: 100%;" colspan="2"><hr style="width: 60%; border: 1px solid #161616;" ></th>
+            </tr>
+
+            <tr style="position: relative; width: 100%;" colspan="2">
+                <th style="width: 100%;" colspan="2"><span style="font-family: Arial, Helvetica, sans-serif; font-size: .75rem; font-weight: 100; color: #828282; padding:0 .5rem; text-align: center;">{{dt_string}}</span></th>
+            </tr>
+            
+            <tr style="position: relative; width: 100%; padding: .5rem;">
+                <th style="width: 100%;" colspan="2"><p style="font-family: Arial, Helvetica, sans-serif; font-size: 1.25rem; font-weight: 500; color: #161616; padding: 0 .5rem; text-align: center; max-width: 500px;">{{tweet_text}}</p></th>
+            </tr>
+
+            <tr style="position: relative; width: 100%; padding: 0 .5rem; text-align: center;">
+                <td><p style="font-family: Arial, Helvetica, sans-serif; font-size: 1rem; font-weight: 400; color: #828282; padding:0 .5rem; text-align: center;">Retweets: {{tweet_rts}}</p></td>
+                <td><p style="font-family: Arial, Helvetica, sans-serif; font-size: 1rem; font-weight: 200; color: #828282; padding:0 .5rem; text-align: center;">Likes: {{tweet_likes}}</p></td>
+                <td><p style="font-family: Arial, Helvetica, sans-serif; font-size: 1rem; font-weight: 200; color: #828282; padding:0 .5rem; text-align: center;">Replies: {{tweet_replies}}</p></td>
+            </tr>
+    
+        </tbody>
+    </table>
+    
+</html>
